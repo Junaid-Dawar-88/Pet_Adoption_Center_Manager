@@ -111,15 +111,15 @@ async function removePet() {
   let updateId = addPets.find((f) => f.id == updatePet);
   if (!updateId) {
     console.log(`Pet with ID ${updatePet} not found.`);
-    updatePet;
+    removePet()
     return;
   }
   const index = addPets.indexOf(updateId);
   if (index !== -1) {
     addPets.splice(index, 1);
     console.log("Delete:", updateId);
+    main();
   }
-  main();
 }
 
 function saveData() {
